@@ -36,7 +36,7 @@ By inspecting this file I learned that:
 ##Data Processing
 
 tail -n +3 transposed_genotypes.txt > transposed_oneheader.txt
-sed 's/Group/SNP_ID/g' transposed_oneheader.txt | head -n -1 > transposed_changedhead.txt
+sed 's/Group/SNP_ID/g' transposed_oneheader.txt > transposed_changedhead.txt
 ll
 vim transposed_changedhead.txt
 join -1 1 -2 1 snp_position.txt transposed_changedhead.txt > joined_oneheader.txt

@@ -54,10 +54,10 @@ cut -d $' ' --complement -f2 joined_oneheader.txt > seqcol.txt
 Maize data is found in folder maize
 
 ```
-head -n1 joined_seqcol.txt | tr ' ' '\n' | nl | grep "ZMMIL" > teosinte/ZMMIL.txt
-head -n1 joined_seqcol.txt | tr ' ' '\n' | nl | grep "ZMMLR" > teosinte/ZMMLR.txt
-head -n1 joined_seqcol.txt | tr ' ' '\n' | nl | grep "ZMMMR" > teosinte/ZMMMR.txt
-cut -d $' ' -f1,2,3,88-987,1177-1217,988-1021 joined_seqcol.txt > maize/maize_data.txt
+head -n1 joined_seqcol.txt | tr ' ' '\n' | nl | grep "ZMMIL" > maize/ZMMIL.txt
+head -n1 joined_seqcol.txt | tr ' ' '\n' | nl | grep "ZMMLR" > maize/ZMMLR.txt
+head -n1 joined_seqcol.txt | tr ' ' '\n' | nl | grep "ZMMMR" > maize/ZMMMR.txt
+cut -d $' ' -f1,2,3,2507-2796,1224-2479,2480-2506 joined_seqcol.txt > maize_data.txt
 ( head -n 1 maize_data.txt && tail -n +2 maize_data.txt | sort -k2,2n ) > sort_maize.txt
 for i in {1,2,3,4,5,6,7,8,9,10}; do     grep -P "^\S+\s+$i\s" sort_maize.txt > ch$i.txt;     cat head.txt ch$i.txt > chromosome_$i.txt; done
 mv ch1.txt ch2.txt ch3.txt ch4.txt ch5.txt ch6.txt ch7.txt ch8.txt ch9.txt ch10.txt inter_file/
